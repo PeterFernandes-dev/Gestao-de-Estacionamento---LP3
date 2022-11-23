@@ -16,7 +16,7 @@
 <body>
        
 	<div class="container">
-    <div class="title">Registration</div>
+    <div class="title">Cadastrar Carro</div>
     <div class="content">
     
       <form action="controllerCarro" method="post">
