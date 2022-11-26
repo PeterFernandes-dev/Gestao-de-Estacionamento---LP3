@@ -1,6 +1,6 @@
-<%@page import="br.computacao.AppEstacionamento.model.Carro"%>
+<%@page import="br.computacao.AppEstacionamento.model.Vaga"%>
 <%@page import="java.util.List"%>
-<%@page import="br.computacao.AppEstacionamento.dao.CarroDao"%>
+<%@page import="br.computacao.AppEstacionamento.dao.VagaDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -18,14 +18,14 @@
 
 	<%
 		
-		CarroDao dao = new CarroDao();
-		List<Carro> carros = dao.findAll(Carro.class);
+		VagaDao dao = new VagaDao();
+		List<Vaga> vagas = dao.findAll(Vaga.class);
 	
 	
 	%>
 
 	<div class="container">
-		<a class="btn btn-primary" href="formCarro.jsp">Novo Carro</a>
+		<a class="btn btn-primary" href="formVaga.jsp">Nova Vaga</a>
 			<table class="table table-bordered">
 		
 				<thead>
@@ -33,29 +33,31 @@
 				<tr>
 				
 					<th> ID </th>
-					<th> Placa </th>
-					<th> Cor </th>
-					<th> Modelo </th>
+					<th> Cobertura </th>
+					<th> Status </th>
+					<th> Identificacão</th>
+					<th> Preço </th>
 					<th> </th>
 					
 				</tr>
 				
 				</thead>
 				<tbody> 
-				<% for(Carro carro: carros){ %>
+				<% for(Vaga vaga: vagas){ %>
 				<tr> 
 				
-					<td> <%= carro.getId() %> </td>	
-					<td> <%= carro.getPlaca() %> </td>	
-					<td> <%= carro.getCor() %> </td>	
-					<td> <%= carro.getModelo() %> </td>	
+					<td> <%= vaga.getId() %> </td>	
+					<td> <%= vaga.getCobertura() %> </td>	
+					<td> <%= vaga.getStatus() %> </td>	
+					<td> <%= vaga.getIdentificacao() %> </td>	
+					<td> <%= vaga.getPreco() %> </td>
 					
 					<td> 
 						<a class="btn btn-secondary btn-sm" 
-                			href="editCarro.jsp?id=<%=carro.getId() %>"> Editar </a>	
+                			href="editVaga.jsp?id=<%=vaga.getId() %>"> Editar </a>	
 
 		                <a class="btn btn-danger btn-sm" 
-		                	href="<%= request.getContextPath()%>/controllerCarro?id=<%=carro.getId()%>"> Excluir </a>
+		                	href="<%= request.getContextPath()%>/controllerVaga?id=<%=vaga.getId()%>"> Excluir </a>
 		        	</td>
 					
 				</tr>

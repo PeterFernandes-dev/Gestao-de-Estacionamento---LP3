@@ -29,8 +29,15 @@ public class ServletCarro extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		CarroDao dao = new CarroDao();
+		long carroid = Long.parseLong(request.getParameter("id"));
+		Carro delcarro = dao.findById(Carro.class, carroid).get();
+		
+		dao.delete(delcarro);
+		
+		response.sendRedirect("conCarro.jsp");
+		
 	}
 
 	/**

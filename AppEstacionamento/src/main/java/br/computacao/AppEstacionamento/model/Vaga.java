@@ -23,27 +23,17 @@ public class Vaga {
 	private Status status;
 	private String identificacao;
 	private Double preco;
-	
-	/*@OneToOne(fetch = FetchType.LAZY)
-	private carroVaga carroVaga;*/
-	
-	
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
-	} Cobertura getCobertura() {
+	}
+	public Cobertura getCobertura() {
 		return cobertura;
 	}
 	public void setCobertura(Cobertura cobertura) {
 		this.cobertura = cobertura;
-	}
-	public Status getStatus() {
-		return status;
-	}
-	public void setStatus(Status status) {
-		this.status = status;
 	}
 	public String getIdentificacao() {
 		return identificacao;
@@ -57,12 +47,24 @@ public class Vaga {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+	public Status getStatus() {
+		return status;
+	}
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+	
+	
+	/*@OneToOne(fetch = FetchType.LAZY)
+	private carroVaga carroVaga;*/
 	/*public carroVaga getCarroVaga() {
 		return carroVaga;
 	}
 	public void setCarroVaga(carroVaga carroVaga) {
 		this.carroVaga = carroVaga;
 	}*/
+	
+	
 
 	
 }

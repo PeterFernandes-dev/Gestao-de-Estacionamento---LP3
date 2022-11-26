@@ -8,33 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" 
     rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <link href="css/a2.jpg" 
+    <link href="imgs/Estacionamento.png" 
     rel="stylesheet">
-    <link href="css/style.css" 
+    <link href="css/styleH.css" 
     rel="stylesheet">
 </head>
 <body>
    <div class="home">
-       <nav>
+   	<nav>
        <a href="#">Home</a>
        <a href="#">Cadastrar Carro</a>
        <span class="logo">CP Estacionamento</span>
        <a href="#">Cadastrar Vagas</a>
-   </nav>
+   	</nav>
     <div class="banner-area">
-       <h3>CP Estacionamento</h3>
+       <h3>CP Estacionamento </h3>
+       <h2><span class="typed2"></span></h2>
        <a href="#">Estacionar Carro</a>
     </div>
    </div>
 
 
-    <script src="typed.js"></script>
+    <script src="css/typed.js"></script>
     <script>
         var typed = new Typed(".typed2", {
             strings: [
-                "Photographer",
-                "Marketer",
-                "Designer"
+                "Bem-Vindo",
+                "Escolha uma opção",
             ],
             typeSpeed: 50,
             backSpeed: 50,

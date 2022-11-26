@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +12,7 @@
      
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <title> Cadastrar Carro</title> 
+    <title> Cadastrar Vaga</title> 
 </head>
 <body>
        
@@ -19,25 +20,32 @@
     <div class="title">Cadastrar Carro</div>
     <div class="content">
     
-      <form action="controllerCarro" method="post">
+      <form action="controllerVaga" method="post">
       
         <div class="user-details">
           <div class="input-box">
           
-            <span class="details">Placa</span>
-            <input type="text" placeholder="Entre com a Placa do veÃ­culo" required name="placa" />
+            <span class="details">Cobertura</span>
+            <input type="text" placeholder="Entre com a cobertura da vaga" required name="cobertura" />
             
           </div>
           <div class="input-box">
           
-            <span class="details">Cor</span>
-            <input type="text" placeholder="Entre com a cor do veÃ­culo" required name="cor" />
+            <span class="details">Status</span>
+            <input type="text" placeholder="Entre com o status da vaga" required name="status" />
             
           </div>
           <div class="input-box">
           
-            <span class="details">Modelo</span>
-            <input type="text" placeholder="Entre com o modelo do veÃ­culo" required name="modelo" />
+            <span class="details">Identificacão</span>
+            <input type="text" placeholder="Entre com a identificacão da vaga" required name="identificacao" />
+            
+          </div>
+          
+          <div class="input-box">
+          
+            <span class="details">Preço</span>
+            <input type="text" placeholder="Entre com o preço da vaga" required name="preco" />
             
           </div>
          </div>

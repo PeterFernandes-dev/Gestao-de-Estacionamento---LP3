@@ -4,7 +4,7 @@ body {
 	font-family: 'Teko', sans-serif;
 }
 .home {
-	background-image: url(a2.jpg);
+	background-image: url(../imgs/Estacionamento.png);
 	background-size: cover;
 	background-position: center center;
 	height: 100vh;
@@ -12,6 +12,7 @@ body {
 nav {
 	text-align: center;
 	padding-top: 2%;
+	background: rgba(10, 10, 10, 0.9);
 }
 .logo {
 	display: inline-block;
@@ -21,6 +22,9 @@ nav {
 	font-size: 40px;
 	font-family: 'Cookie', cursive;
 }
+.logo:hover {
+	color: #00bfff;
+}
 nav a {
 	text-decoration: none;
 	color: #fff;
@@ -28,6 +32,10 @@ nav a {
 	text-transform: uppercase;
 	margin: 0 25px;
 	letter-spacing: 3px;
+	
+}
+a:hover {
+	color: #00bfff;
 }
 .banner-area {
 	position: absolute;
@@ -36,11 +44,12 @@ nav a {
 	transform: translate(-50%, -50%);
 	text-align: center;
 	width: 100%;
+	
 }
 .banner-area h3 {
 	font-size: 100px;
 	text-transform: capitalize;
-	color: #fff;
+	color: rgba(255, 255, 255, 0.9);
 	margin: 0 0 40px 0;
 	font-family: cookie;
 }
