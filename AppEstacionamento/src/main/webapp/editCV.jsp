@@ -32,10 +32,19 @@
         <input type="date" placeholder="Entre com a Placa do veículo" 
         	required name="dataEntrada"  value="<%= conCV.getDataEntrada() %>"/>
         <br/>
+        <span class="details">Hora de entrada</span>
+        <input type="date" placeholder="Entre com a cor do veículo" 
+        	required name="dataSaida" value="<%= conCV.getHoraEntrada() %>"/>
+        <br/>
 
         <span class="details">Data de saída</span>
         <input type="date" placeholder="Entre com a cor do veículo" 
         	required name="dataSaida" value="<%= conCV.getDataSaida() %>"/>
+        <br/>
+        
+        <span class="details">Hora de saída</span>
+        <input type="date" placeholder="Entre com a cor do veículo" 
+        	required name="dataSaida" value="<%= conCV.getHoraSaida() %>"/>
         <br/>
 
         <span class="details">Preço total</span>

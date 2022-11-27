@@ -8,11 +8,12 @@ import br.computacao.AppEstacionamento.model.Vaga;
 
 public class VagaDao extends Dao<Vaga, Long>{
 
-	public Vaga BuscaVaga() {
+	public Vaga BuscaVaga(long id) {
 			
 			Vaga employee;
 			TypedQuery<Vaga> query = em.createQuery(
-					"SELECT id, idenficacao FROM vaga WHERE status = 'VAZIA' ", Vaga.class);
+					"SELECT v FROM Vaga v WHERE v.id = " + id, Vaga.class);
+			
 			 
 			employee = query.getSingleResult();
 			

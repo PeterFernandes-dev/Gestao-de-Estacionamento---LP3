@@ -1,6 +1,7 @@
 package br.computacao.AppEstacionamento.model;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
@@ -20,6 +21,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import java.time.temporal.ChronoUnit;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class carroVaga {
@@ -31,7 +34,12 @@ public class carroVaga {
 	private Date dataEntrada;
 	private Date dataSaida;
 	
-	private Double precoTotal; 
+	
+	private String horaEntrada;
+
+	private String horaSaida;
+	
+	private Double precoTotal;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Carro carro;
@@ -101,8 +109,63 @@ public class carroVaga {
 	public void setFatura(Fatura fatura) {
 		this.fatura = fatura;
 	}
+
+	public String getHoraEntrada() {
+		return horaEntrada;
+	}
+
+	public void setHoraEntrada(String horaEntrada) {
+		this.horaEntrada = horaEntrada;
+	}
+
+	public String getHoraSaida() {
+		return horaSaida;
+	}
+
+	public void setHoraSaida(String horaSaida) {
+		this.horaSaida = horaSaida;
+	}
 	
-	
+	public double Calcular(Date d1, Date d2, String s1, String s2, Double pr)
+	{
+		Double resultado = 0.0;
+		
+		if(d1.before(d2)) 
+		{
+		
+			long date1InMs = d1 . getTime (); 
+			long date2InMs = d2 . getTime ();
+			
+			long timeDiff = 0 ; 
+
+			if ( date1InMs > date2InMs ) 
+            { 
+                timeDiff = date1InMs - date2InMs ; 
+            } 
+            else 
+            { 
+                timeDiff = date2InMs - date1InMs ; 
+            } 
+			
+			int daysDiff = ( int ) ( timeDiff / ( 1000 * 60 * 60 * 24 ));
+			
+			resultado = (Double.valueOf(daysDiff) * 24) * pr;
+			if(daysDiff > 1)
+			{
+				
+				resultado +=  ((24 -  Double.valueOf(s1.replace(":", "."))) * pr);
+				
+				resultado += (Double.valueOf(s2.replace(":", ".")) * pr);
+			}
+			
+		}
+		else
+		{
+			resultado = (Double.valueOf(s2.replace(":", ".")) -  Double.valueOf(s1.replace(":", "."))) * pr;
+		}
+		
+		return resultado;
+	}
 	
 	
 }

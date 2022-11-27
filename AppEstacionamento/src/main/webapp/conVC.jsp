@@ -48,8 +48,8 @@
 				<tr> 
 
 					<td> <%= cv.getId() %> </td>
-					<td> <%= cv.getDataEntrada() %> </td>
-					<td> <%= cv.getDataSaida() %> </td>
+					<td> <%= cv.getDataEntrada() %> &nbsp; <%= cv.getHoraEntrada() %> </td>
+					<td> <%= cv.getDataSaida() %> &nbsp; <%= cv.getHoraSaida() %> </td>		
 					<td> <%= cv.getPrecoTotal() %> </td>
 					<td> <%= cv.getFatura().getSituacao() %> </td>	
 					<td> <%= cv.getFatura().getTipoPagamento() %> </td>		

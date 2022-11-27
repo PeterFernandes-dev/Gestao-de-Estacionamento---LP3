@@ -2,6 +2,7 @@ package br.computacao.AppEstacionamento.servlet;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.Time;
 
 import javax.net.ssl.SSLEngineResult.Status;
 import javax.servlet.ServletException;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.computacao.AppEstacionamento.dao.CarroDao;
 import br.computacao.AppEstacionamento.dao.CarroVagaDao;
+import br.computacao.AppEstacionamento.dao.VagaDao;
 import br.computacao.AppEstacionamento.model.Carro;
 import br.computacao.AppEstacionamento.model.Fatura;
+import br.computacao.AppEstacionamento.model.Vaga;
 import br.computacao.AppEstacionamento.model.carroVaga;
 
 
@@ -59,15 +62,30 @@ public class ServletCarroVaga extends HttpServlet {
         	carroVaga novoCV = new carroVaga();
         	Fatura fat = new Fatura();
         	Carro cr = new Carro();
+        	Vaga vg = new Vaga();
+        	VagaDao vgdao = new VagaDao();
         	
         	novoCV.setDataEntrada(Date.valueOf(request.getParameter("dataEntrada")));
+        	novoCV.setHoraEntrada((request.getParameter("horaEntrada")));
         	novoCV.setDataSaida(Date.valueOf(request.getParameter("dataSaida")));
-        	novoCV.setPrecoTotal(Double.parseDouble(request.getParameter("preco")));
+        	novoCV.setHoraSaida((request.getParameter("horaSaida")));
         	fat.setSituacao(request.getParameter("situacao"));
         	fat.setTipoPagamento(request.getParameter("tipoPagamento"));
         	novoCV.setFatura(fat);
         	cr.setId(Long.parseLong(request.getParameter("id")));
+        	vg.setId(Long.parseLong(request.getParameter("Vagaid")));
         	novoCV.setCarro(cr);
+        	novoCV.setVaga(vg);
+        	
+        	vg = vgdao.BuscaVaga(vg.getId());
+        	
+        	novoCV.setPrecoTotal(
+        			novoCV.Calcular(
+        					novoCV.getDataEntrada(),
+        					novoCV.getDataSaida(), 
+        					novoCV.getHoraEntrada(), 
+        					novoCV.getHoraSaida(), 
+        					vg.getPreco()));
         	
             dao.save(novoCV);
 
@@ -81,7 +99,9 @@ public class ServletCarroVaga extends HttpServlet {
 
             
             cv.setDataEntrada(Date.valueOf(request.getParameter("dataEntrada")));
+            cv.setHoraEntrada((request.getParameter("horaEntrada")));
             cv.setDataSaida(Date.valueOf(request.getParameter("dataSaida")));
+            cv.setHoraSaida((request.getParameter("horaSaida")));
             cv.setPrecoTotal(Double.parseDouble(request.getParameter("preco")));
         	fat.setSituacao(request.getParameter("situacao"));
         	fat.setTipoPagamento(request.getParameter("tipoPagamento"));

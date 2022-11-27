@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="br.computacao.AppEstacionamento.model.Vaga"%>
 <%@page import="br.computacao.AppEstacionamento.dao.VagaDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,9 +20,10 @@
        
 	<%
         long id = Long.parseLong(request.getParameter("id"));
-		
-		
-    %>   
+
+        VagaDao vdao = new VagaDao();
+        List<Vaga> listVaga = vdao.findAll(Vaga.class);
+    %>  
        
 	<div class="container">
     <div class="title">Cadastrar Carro</div>
@@ -39,14 +41,20 @@
           </div>
           <div class="input-box">
           
+            <span class="details">Hora de entrada</span>
+            <input type="time" placeholder="Entre com a Placa do veículo" required name="horaEntrada" />
+            
+          </div>
+          <div class="input-box">
+          
             <span class="details">Data de saída</span>
             <input type="date" placeholder="Entre com a cor do veículo" required name="dataSaida" />
             
           </div>
           <div class="input-box">
           
-            <span class="details">Preço total</span>
-            <input type="text" placeholder="Entre com o modelo do veículo" required name="preco" />
+            <span class="details">Hora de saida</span>
+            <input type="time" placeholder="Entre com a Placa do veículo" required name="horaSaida" />
             
           </div>
           <div class="input-box">
@@ -63,21 +71,19 @@
           </div>
           <div class="input-box">
           
-          	<select> 
-          		
-          		<option select> Selecione uma vaga </option>
-          		<% 
-          			VagaDao vdao = new VagaDao();
-          			Vaga vg = new Vaga();
-          			vg = vdao.BuscaVaga();
-          			
-          			for(Vaga obj : vg)
-          		%>
-          		
-          	</select>
-          
-            <span class="details">Vaga</span>
-            <input type="text" placeholder="Escolha uma vaga" required name="Vagaid" />
+          	<select name="Vagaid"> 
+
+                  <option value=""> Selecione uma Vaga </option>
+                  <%
+                      for(Vaga obj : listVaga) 
+                      {
+                  %>
+                          <option value="<%= obj.getId() %>"> <%= obj.getIdentificacao() %> </option>
+                  <%
+                      }
+                  %>
+
+              </select>
             
           </div>
           
