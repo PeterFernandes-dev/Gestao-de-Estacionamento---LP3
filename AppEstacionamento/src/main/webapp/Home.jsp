@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!doctype html>
 <html lang="en">
-<!--divinectorweb.com-->
+
 <head>
     <meta charset="UTF-8">
     <title>Home</title>

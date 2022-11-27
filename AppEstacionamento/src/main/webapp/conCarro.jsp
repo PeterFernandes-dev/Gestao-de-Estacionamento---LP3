@@ -56,6 +56,9 @@
 
 		                <a class="btn btn-danger btn-sm" 
 		                	href="<%= request.getContextPath()%>/controllerCarro?id=<%=carro.getId()%>"> Excluir </a>
+		                	
+		               	<a class="btn btn-secondary btn-sm" 
+		                	href="formCV.jsp?id=<%=carro.getId() %>"> Vincular Vaga </a>
 		        	</td>
 					
 				</tr>

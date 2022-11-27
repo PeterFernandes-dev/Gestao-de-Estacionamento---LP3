@@ -13,7 +13,7 @@ import br.computacao.AppEstacionamento.util.JpaUtil;
 
 public class Dao<T, ID> {
 
-	private EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+	protected EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 
 	public void save(T entity) {
 		executeInsideTransaction(em -> em.persist(entity));

@@ -56,7 +56,6 @@ public class ServletCarro extends HttpServlet {
         	
             dao.save(novoCarro);
 
-
         }
         else {
 
@@ -69,7 +68,8 @@ public class ServletCarro extends HttpServlet {
         	carro.setModelo(request.getParameter("modelo"));
             dao.update(carro);
         }
-
+        
+        
         response.sendRedirect("conCarro.jsp");
 		
 	}
