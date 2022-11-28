@@ -22,7 +22,9 @@
         long id = Long.parseLong(request.getParameter("id"));
 
         VagaDao vdao = new VagaDao();
-        List<Vaga> listVaga = vdao.findAll(Vaga.class);
+        //List<Vaga> listVaga = vdao.findAll(Vaga.class);
+        
+        List<Vaga> listVaga = vdao.BuscaVagaVazia();
     %>  
        
 	<div class="container">

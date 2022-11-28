@@ -132,6 +132,16 @@ public class carroVaga {
 		
 		if(d1.before(d2)) 
 		{
+			if ((Double.valueOf(s1.replace(":", ".")) < Double.valueOf(s2.replace(":", ".") ) )
+				|| (Double.valueOf(s1.replace(":", ".")) > Double.valueOf(s2.replace(":", ".")
+					)))
+			{
+				resultado +=  ((24 -  Double.valueOf(s1.replace(":", "."))) * pr);
+				
+				resultado += (Double.valueOf(s2.replace(":", ".")) * pr);
+				
+				return resultado;
+			}
 		
 			long date1InMs = d1 . getTime (); 
 			long date2InMs = d2 . getTime ();
@@ -157,6 +167,7 @@ public class carroVaga {
 				
 				resultado += (Double.valueOf(s2.replace(":", ".")) * pr);
 			}
+			
 			
 		}
 		else

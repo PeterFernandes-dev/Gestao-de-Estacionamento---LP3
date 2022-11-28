@@ -1,3 +1,7 @@
+<%@page import="br.computacao.AppEstacionamento.model.Carro"%>
+<%@page import="br.computacao.AppEstacionamento.dao.CarroDao"%>
+<%@page import="br.computacao.AppEstacionamento.model.Vaga"%>
+<%@page import="br.computacao.AppEstacionamento.dao.VagaDao"%>
 <%@page import="java.util.List"%>
 <%@page import="br.computacao.AppEstacionamento.model.carroVaga"%>
 <%@page import="br.computacao.AppEstacionamento.dao.CarroVagaDao"%>
@@ -18,7 +22,17 @@
 
 	<%
 		
-		CarroVagaDao dao = new CarroVagaDao();
+		//CarroVagaDao dao = new CarroVagaDao();
+	
+	    VagaDao vdao = new VagaDao();
+	    
+	    List<Vaga> listVaga = vdao.BuscaVagaOcupada();
+	    
+	    CarroDao dao = new CarroDao();
+		List<Carro> carros = dao.findAll(Carro.class);
+		
+		CarroVagaDao cvdao = new CarroVagaDao();
+		List<carroVaga> cvs = cvdao.findAll(carroVaga.class);
 		
 	
 	%>
@@ -33,22 +47,47 @@
 					<th> Placa </th>
 					<th> Modelo </th>
 					<th> Nome da Vaga </th>
+					<th> Valor cobrado </th>
+					<th> Situação do pagamento </th>
+					
 
 					
 				</tr>
 				
 				</thead>
 				<tbody> 
-				<% for(carroVaga cvs: dao.Ce()){ %>
+				<% 
+				
+					for(Vaga obj : listVaga){ 
+					
+						for(carroVaga obj2 : cvs){
+							
+							
+							if(obj.getId() == obj2.getVaga().getId())
+								for(Carro obj3 : carros){
+									
+									if(obj3.getId() == obj2.getCarro().getId())
+										
+									{
+								
+				
+				%>
 				<tr> 
 				
-					<td> <%= cvs.getCarro().getPlaca() %> </td>	
-					<td> <%= cvs.getCarro().getModelo() %> </td>	
-					<td> <%= cvs.getVaga().getIdentificacao() %> </td>	
+					<td> <%= obj3.getPlaca() %> </td>
+                    <td> <%= obj3.getModelo() %> </td>
+                    <td> <%= obj.getIdentificacao() %> </td>
+                    <td> <%= obj2.getPrecoTotal() %> </td>
+                    <td> <%= obj2.getFatura().getSituacao() %> </td>
 				
 					
 				</tr>
-				<%} %>
+				<%
+					}
+						} 
+							}	
+								}
+				%>
 				</tbody>
 				
 			</table>

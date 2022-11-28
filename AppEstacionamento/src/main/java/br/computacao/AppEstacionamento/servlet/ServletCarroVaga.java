@@ -45,6 +45,14 @@ public class ServletCarroVaga extends HttpServlet {
 		long cvid = Long.parseLong(request.getParameter("id"));
 		carroVaga delcv = dao.findById(carroVaga.class, cvid).get();
 		
+		Vaga vg = new Vaga();
+		
+		VagaDao vdao = new VagaDao();
+		vg = vdao.findById(Vaga.class, delcv.getVaga().getId()).get();
+		vg.setStatus(br.computacao.AppEstacionamento.model.Status.VAZIA);
+		
+		vdao.save(vg);
+		
 		dao.delete(delcv);
 		
 		response.sendRedirect("conVC.jsp");
@@ -74,6 +82,7 @@ public class ServletCarroVaga extends HttpServlet {
         	novoCV.setFatura(fat);
         	cr.setId(Long.parseLong(request.getParameter("id")));
         	vg.setId(Long.parseLong(request.getParameter("Vagaid")));
+        	vg.setStatus(br.computacao.AppEstacionamento.model.Status.OCUPADA);
         	novoCV.setCarro(cr);
         	novoCV.setVaga(vg);
         	
