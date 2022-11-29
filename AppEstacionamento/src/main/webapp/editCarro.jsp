@@ -8,10 +8,9 @@
 <head>
 <meta charset="utf-8">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styleF.css" type="text/css">
+     
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
 <title>Cadastro Curso</title>
 </head>
@@ -22,28 +21,42 @@
         CarroDao dao = new CarroDao();
         Carro conCarro = dao.findById(Carro.class, carroid).get();
     %>
-
-    <h1>Cadastro Curso</h1>
-
-    <form action="controllerCarro" method="post">
-
-    <input type="hidden" name="carroid" value="<%= carroid %>" />
     
-        <label> Placa </label>
-        <input  type="text" name="placa" value="<%= conCarro.getPlaca() %>" />
-        <br/>
-
-        <label> Cor </label>
-        <input  type="text" name="cor" value="<%= conCarro.getCor() %>" />
-        <br/>
-
-        <label> Modelo </label>
-        <input  type="text" name="modelo" value="<%= conCarro.getModelo() %>"/>
-        <br/>
-
-        <input type="submit" value="Salvar" />
-
-    </form>
+    <div class="container">
+    <div class="title">Editar Carro</div>
+    <div class="content">
+    
+      <form action="controllerCarro" method="post">
+      	
+      	<input type="hidden" name="carroid" value="<%= carroid %>" />
+      	
+        <div class="user-details">
+          <div class="input-box">
+          
+            <span class="details">Placa</span>
+            <input  type="text" name="placa" value="<%= conCarro.getPlaca() %>" />
+            
+          </div>
+          <div class="input-box">
+          
+            <span class="details">Cor</span>
+            <input  type="text" name="cor" value="<%= conCarro.getCor() %>" />
+            
+          </div>
+          <div class="input-box">
+          
+            <span class="details">Modelo</span>
+            <input  type="text" name="modelo" value="<%= conCarro.getModelo() %>"/>
+            
+          </div>
+         </div>
+        <div class="button">
+          <input type="submit" value="Salvar" />
+        </div>
+        
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>

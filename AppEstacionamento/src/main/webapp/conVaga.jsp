@@ -11,6 +11,9 @@
 		rel="stylesheet" 
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
 		crossorigin="anonymous">
+		
+		<link rel="stylesheet" href="css/styleL.css" type="text/css">
+		<link href="css/styleH.css" rel="stylesheet">
 
 <title>Insert title here</title>
 </head>
@@ -23,49 +26,48 @@
 	
 	
 	%>
+	
+	<nav>
+       <a href="Home.jsp">Home</a>
+       <a href="formCarro.jsp">Cadastrar Carro</a>
+       <span class="logo">CP Estacionamento</span>
+       <a href="formVaga.jsp">Cadastrar Vagas</a>
+   	</nav>
+   	
+	<h1>Vagas Cadastradas</h1>
 
-	<div class="container">
-		<a class="btn btn-primary" href="formVaga.jsp">Nova Vaga</a>
-			<table class="table table-bordered">
-		
-				<thead>
-				
-				<tr>
-				
-					<th> ID </th>
-					<th> Cobertura </th>
-					<th> Status </th>
-					<th> Identificacão</th>
-					<th> Preço </th>
-					<th> </th>
-					
-				</tr>
-				
-				</thead>
-				<tbody> 
-				<% for(Vaga vaga: vagas){ %>
-				<tr> 
-				
-					<td> <%= vaga.getId() %> </td>	
+    <table>
+        <tr id="header">
+         	<th> ID </th>
+			<th> Cobertura </th>
+			<th> Status </th>
+			<th> Identificacão</th>
+			<th> Preço </th>
+			<th> </th>
+			
+        </tr>
+        <% for(Vaga vaga: vagas){ %>
+        <tr>
+            <td> <%= vaga.getId() %> </td>	
 					<td> <%= vaga.getCobertura() %> </td>	
 					<td> <%= vaga.getStatus() %> </td>	
 					<td> <%= vaga.getIdentificacao() %> </td>	
 					<td> <%= vaga.getPreco() %> </td>
-					
-					<td> 
-						<a class="btn btn-secondary btn-sm" 
-                			href="editVaga.jsp?id=<%=vaga.getId() %>"> Editar </a>	
+			<td> 
+				<div class="d-grid gap-2 d-md-block">
+					<a class="btn btn-outline-primary btn-sm" 
+                		href="editVaga.jsp?id=<%=vaga.getId() %>"> Editar </a>	
+		       		<a class="btn btn-outline-danger btn-sm" 
+		       			href="<%= request.getContextPath()%>/controllerVaga?id=<%=vaga.getId()%>"> Excluir </a>
+		            	        	
+		         </div>
+		    </td>
 
-		                <a class="btn btn-danger btn-sm" 
-		                	href="<%= request.getContextPath()%>/controllerVaga?id=<%=vaga.getId()%>"> Excluir </a>
-		        	</td>
-					
-				</tr>
-				<%} %>
-				</tbody>
-				
-			</table>
-	</div>
+        </tr>
+        <%} %>
+        
+
+    </table>
 
 </body>
 </html>
