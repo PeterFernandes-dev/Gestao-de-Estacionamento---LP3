@@ -26,7 +26,7 @@
    	</nav>
     <div class="banner-area">
        <h3>CP Estacionamento </h3>
-       <h2><span class="typed2"></span></h2>
+       <h2 style="margin-bottom: 30px" ><span class="typed2"></span></h2>
 	       <a class="btn btn-outline-dark" href="conCarro.jsp">Carros</a>
 	       <a class="btn btn-outline-dark" href="conVaga.jsp">Vagas</a>
 	       <a class="btn btn-outline-dark" href="carrosEstacionados.jsp">Carros Estacionados</a>

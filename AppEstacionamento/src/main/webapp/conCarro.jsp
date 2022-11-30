@@ -20,11 +20,8 @@
 <body>
 
 	<%
-		
 		CarroDao dao = new CarroDao();
 		List<Carro> carros = dao.findAll(Carro.class);
-	
-	
 	%>
 	
 	<nav>

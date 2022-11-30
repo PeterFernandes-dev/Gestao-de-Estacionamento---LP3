@@ -9,12 +9,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+		rel="stylesheet" 
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+		crossorigin="anonymous">
     
-    <link rel="stylesheet" href="css/styleC.css" type="text/css">
+    <link rel="stylesheet" href="css/styleF.css" type="text/css">
      
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <title> Cadastrar Carro</title> 
+    <title> Vincular Carro</title> 
 </head>
 <body>
        
@@ -28,7 +32,7 @@
     %>  
        
 	<div class="container">
-    <div class="title">Cadastrar Carro</div>
+    <div class="title">Vincular Carro</div>
     <div class="content">
     
       <form action="controllerCV" method="post">
@@ -37,45 +41,55 @@
         <div class="user-details">
           <div class="input-box">
           
-            <span class="details">Data de entrada</span>
-            <input type="date" placeholder="Entre com a Placa do veículo" required name="dataEntrada" />
+            <span class="details">Data de Entrada:</span>
+            <input type="date" required name="dataEntrada" />
             
           </div>
           <div class="input-box">
           
-            <span class="details">Hora de entrada</span>
-            <input type="time" placeholder="Entre com a Placa do veículo" required name="horaEntrada" />
+            <span class="details">Hora de Entrada:</span>
+            <input type="time" required name="horaEntrada" />
             
           </div>
           <div class="input-box">
           
-            <span class="details">Data de saída</span>
-            <input type="date" placeholder="Entre com a cor do veículo" required name="dataSaida" />
+            <span class="details">Data de saída:</span>
+            <input type="date" required name="dataSaida" />
             
           </div>
           <div class="input-box">
           
-            <span class="details">Hora de saida</span>
-            <input type="time" placeholder="Entre com a Placa do veículo" required name="horaSaida" />
+            <span class="details">Hora de Saida:</span>
+            <input type="time" required name="horaSaida" />
             
           </div>
           <div class="input-box">
           
-            <span class="details">Situação</span>
-            <input type="text" placeholder="Entre com o modelo do veículo" required name="situacao" />
+            <span class="details">Situação:</span>
+            <select class="form-control" name="situacao" required>
+            	<option>Pago</option> 
+            	<option>Nao Pago</option> 
+            </select>
+            
             
           </div>
           <div class="input-box">
           
-            <span class="details">Tipo de pagamento</span>
-            <input type="text" placeholder="Entre com o modelo do veículo" required name="tipoPagamento" />
+            <span class="details">Tipo de Pagamento:</span>
+            <select class="form-control" name="tipoPagamento" required>
+            	<option>Cartao</option> 
+            	<option>Cheque</option> 
+            	<option>A vista</option>
+            </select>
+            
             
           </div>
           <div class="input-box">
-          
-          	<select name="Vagaid"> 
+          	
+          	<span class="details">Selecionar Vaga:</span>
+          	<select class="form-control" name="Vagaid"> 
 
-                  <option value=""> Selecione uma Vaga </option>
+                  <option value=""> Selecione uma Vaga</option>
                   <%
                       for(Vaga obj : listVaga) 
                       {
