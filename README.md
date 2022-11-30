@@ -1,7 +1,7 @@
 <h1>Telas do Projeto:</h1>
 
 
-<h2>Home
+<h2>Home</h2>
 ![image](https://user-images.githubusercontent.com/74779603/204863873-ce1a5cd8-5a27-4833-931a-62b4d305fabb.png)
 
  <h2>Cadastro de Carro</h2>
