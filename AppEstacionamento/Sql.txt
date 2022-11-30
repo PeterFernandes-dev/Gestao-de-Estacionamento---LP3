@@ -1,0 +1,46 @@
+Hibernate: 
+    
+    create table Carro (
+       id bigint not null auto_increment,
+        cor varchar(255),
+        modelo varchar(255),
+        placa varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table carroVaga (
+       id bigint not null auto_increment,
+        dataEntrada date,
+        dataSaida date,
+        situacao_pagamento varchar(255),
+        tipoPagamento varchar(255),
+        horaEntrada varchar(255),
+        horaSaida varchar(255),
+        precoTotal double precision,
+        carro_id bigint,
+        vaga_id bigint,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table Vaga (
+       id bigint not null auto_increment,
+        cobertura varchar(255),
+        identificacao varchar(255),
+        preco double precision,
+        status varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    alter table carroVaga 
+       add constraint FK7smp9r2p45kh9oydffai70esg 
+       foreign key (carro_id) 
+       references Carro (id)
+Hibernate: 
+    
+    alter table carroVaga 
+       add constraint FKq5ncbluempqsx8c5psnoxnkhl 
+       foreign key (vaga_id) 
+       references Vaga (id)

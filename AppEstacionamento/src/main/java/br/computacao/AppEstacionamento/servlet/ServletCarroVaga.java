@@ -81,12 +81,17 @@ public class ServletCarroVaga extends HttpServlet {
         	fat.setTipoPagamento(request.getParameter("tipoPagamento"));
         	novoCV.setFatura(fat);
         	cr.setId(Long.parseLong(request.getParameter("id")));
+        	
         	vg.setId(Long.parseLong(request.getParameter("Vagaid")));
+        	vg = vgdao.BuscaVaga(vg.getId());
+        	
         	vg.setStatus(br.computacao.AppEstacionamento.model.Status.OCUPADA);
+        	vgdao.update(vg);
         	novoCV.setCarro(cr);
         	novoCV.setVaga(vg);
         	
-        	vg = vgdao.BuscaVaga(vg.getId());
+        	//vg = vgdao.BuscaVaga(vg.getId());
+        	//vg.setStatus(br.computacao.AppEstacionamento.model.Status.OCUPADA);
         	
         	novoCV.setPrecoTotal(
         			novoCV.Calcular(
@@ -97,7 +102,6 @@ public class ServletCarroVaga extends HttpServlet {
         					vg.getPreco()));
         	
             dao.save(novoCV);
-
 
         }
         else {
@@ -118,7 +122,7 @@ public class ServletCarroVaga extends HttpServlet {
             dao.update(cv);
         }
 
-        response.sendRedirect("conCarro.jsp");
+        response.sendRedirect("carrosEstacionados.jsp");
 	}
 
 }

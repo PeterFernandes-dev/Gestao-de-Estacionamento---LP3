@@ -34,7 +34,7 @@ nav a {
 	letter-spacing: 3px;
 	
 }
-nav a:hover {
+a:hover {
 	color: #00bfff;
 }
 .banner-area {
@@ -63,7 +63,12 @@ nav a:hover {
 .banner-area h2 span {
 	color: deepskyblue;
 }
-
+.banner-area a {
+	color: #fff;
+	background: deepskyblue;
+	font-size: 3vh;
+	margin-top: 20px;
+}
 @media (max-width:800px) {
 	nav a {
 		font-size: 11px;

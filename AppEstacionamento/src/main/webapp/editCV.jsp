@@ -41,8 +41,8 @@
           <div class="input-box">
           
             <span class="details">Hora de entrada</span>
-            <input type="date" placeholder="Entre com a cor do veículo" 
-        		required name="dataSaida" value="<%= conCV.getHoraEntrada() %>"/>
+            <input type="time" placeholder="Entre com a cor do veículo" 
+        		required name="horaEntrada" value="<%= conCV.getHoraEntrada() %>"/>
             
           </div>
           <div class="input-box">
@@ -55,8 +55,8 @@
           <div class="input-box">
           
             <span class="details">Hora de saída </span>
-            <input type="date" placeholder="Entre com a cor do veículo" 
-        		required name="dataSaida" value="<%= conCV.getHoraSaida() %>"/>
+            <input type="time" placeholder="Entre com a cor do veículo" 
+        		required name="horaSaida" value="<%= conCV.getHoraSaida() %>"/>
             
           </div>
           <div class="input-box">

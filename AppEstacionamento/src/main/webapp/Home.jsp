@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="imgs/Estacionamento.png" 
     rel="stylesheet">
-    <link href="css/styleH.css" rel="stylesheet">
+    <link href="css/styleHome.css" rel="stylesheet">
 </head>
 <body>
    <div class="home">

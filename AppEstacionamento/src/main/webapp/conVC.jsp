@@ -41,7 +41,7 @@
 					<th> Data de entrada </th>
 					<th> Hora de entrada </th>
 					<th> Data de saída </th>
-					<th> Hora de entrada </th>
+					<th> Hora de saida </th>
 					<th> Preço total </th>
 					<th> Situação </th>
 					<th> Tipo de pagamento </th>

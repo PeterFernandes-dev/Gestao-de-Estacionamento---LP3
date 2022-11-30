@@ -65,7 +65,8 @@ a:hover {
 }
 .banner-area a {
 	color: #fff;
-	background: deepskyblue;
+	background: black;
+	font-size: 3em;
 }
 @media (max-width:800px) {
 	nav a {
